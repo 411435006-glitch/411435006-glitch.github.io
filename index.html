@@ -1,1 +1,172 @@
-hello world
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>林小艾 — 自我介紹</title>
+  <meta name="description" content="頹廢風格的個人自我介紹頁面" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#111111;
+      --paper:#141414;
+      --muted:#b0aca9;
+      --accent:#7a6e67;
+      --shadow:0 6px 18px rgba(0,0,0,0.55);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      background:#111;
+      /* 更頹廢：加強雜訊紙張紋理 */
+      background-image:
+        radial-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        radial-gradient(rgba(255,255,255,0.01) 1px, transparent 1px),
+        linear-gradient(180deg, #121212, #0e0e0e);
+      background-size: 2px 2px, 3px 3px, cover;
+      color:#e5e2de;
+      font-family: 'Cormorant Garamond', 'Special Elite', serif;
+      line-height:1.65;
+      padding:28px;
+    }
+
+    .container{
+      max-width:860px;
+      margin:32px auto;
+      padding:26px;
+      background:rgba(255,255,255,0.02);
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.04);
+      box-shadow:var(--shadow);
+      position:relative;
+      /* 顆粒紙面感 */
+      background-image:
+        radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      background-size:3px 3px, cover;
+    }
+
+    header{display:flex;gap:18px;align-items:center}
+
+    .portrait{
+      width:120px;height:120px;
+      border-radius:6px;
+      background:#0f0f0f;
+      display:flex;align-items:center;justify-content:center;
+      color:var(--muted);font-size:12px;
+      border:1px solid rgba(255,255,255,0.05);
+      background-image:radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+      background-size:4px 4px;
+    }
+
+    h1{
+      font-family:'Cormorant Garamond', serif;
+      font-size:28px;
+      font-weight:600;
+      color:#f1ede9;
+    }
+    .sub{color:var(--muted);font-size:13px;margin-top:6px;font-family:'Special Elite', monospace}
+
+    main{display:grid;grid-template-columns:1fr 320px;gap:22px;margin-top:18px}
+
+    .card{
+      padding:20px;
+      border-radius:8px;
+      background:rgba(255,255,255,0.015);
+      border:1px solid rgba(255,255,255,0.03);
+      background-image:radial-gradient(rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size:3px 3px;
+      box-shadow:0 3px 10px rgba(0,0,0,0.35);
+    }
+
+    .about p{margin:0 0 12px 0;color:#dcd8d4;font-size:17px;font-family:'Cormorant Garamond', serif}
+    .small{color:var(--muted);font-size:13px;font-family:'Special Elite', monospace}
+
+    .list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+    .item{
+      padding:10px 12px;
+      border-radius:6px;
+      background:rgba(255,255,255,0.015);
+      border-left:3px solid rgba(255,255,255,0.05);
+      color:#d2ceca;
+      font-family:'Cormorant Garamond';
+    }
+
+    .contact pre{
+      background:rgba(0,0,0,0.25);
+      padding:10px;border-radius:6px;
+      color:var(--muted);
+      font-family:'Special Elite';
+      font-size:13px;
+    }
+
+    footer{text-align:center;color:var(--muted);font-size:12px;margin-top:18px;font-family:'Special Elite'}
+
+    @media (max-width:800px){main{grid-template-columns:1fr} .portrait{width:96px;height:96px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="portrait">照片 / 替換</div>
+      <div>
+        <h1>林小艾（Lin, Hsiao‑Ai）</h1>
+        <div class="sub">普通大學生 • 社會系三年級 • 台北</div>
+      </div>
+    </header>
+
+    <main>
+      <section class="card about">
+        <h2 style="margin-top:0">關於我</h2>
+        <p>我是一個很普通的大學生，喜歡安靜的角落、舊書、和半夜煮泡麵。一週三天去圖書館、週末在咖啡店打工，生活像很多同學一樣平凡但足夠讓我安心。</p>
+        <p>不擅長社交也不想太突出，喜歡把想法寫在筆記本裡。考慮未來可能會當老師、做編輯，或是找一份可以聽音樂工作的辦公室小職位。</p>
+
+        <div style="margin-top:12px">
+          <div class="small">學業與日常</div>
+          <div class="list">
+            <div class="item"><strong>系別：</strong>社會學系 • 三年級</div>
+            <div class="item"><strong>興趣：</strong>閱讀、日記、街角攝影、慢煮咖啡</div>
+            <div class="item"><strong>打工：</strong>咖啡店吧台（週末）</div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px">
+          <h3 style="margin:0 0 8px 0">個性小檔案</h3>
+          <ul style="margin:0;padding-left:18px;color:var(--muted)">
+            <li>日常節奏慢，喜歡觀察而不是起頭發言</li>
+            <li>不追流行，但會留意新書出版</li>
+            <li>遇到壓力會先畫畫再想辦法解決</li>
+          </ul>
+        </div>
+      </section>
+
+      <aside class="card contact">
+        <h3 style="margin-top:0">Quick Info</h3>
+        <div class="small">年齡：約20歲</div>
+        <div class="small" style="margin-top:6px">居住：台北 • 通學每天約40分鐘</div>
+
+        <h4 style="margin-top:12px;margin-bottom:6px">擅長的小事</h4>
+        <div class="list">
+          <div class="item">整理筆記、慢速書寫</div>
+          <div class="item">拍攝日常瞬間（手機）</div>
+          <div class="item">煮簡單的家常料理</div>
+        </div>
+
+        <h4 style="margin-top:12px;margin-bottom:6px">聯絡</h4>
+        <p class="small">如果想合作或聊書，可以用下面方式聯繫（此為虛構範例）：</p>
+        <pre>lin.xiaoai@example.com
+IG: @lin_xiaoai</pre>
+
+        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+          <a style="text-decoration:none;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted);font-weight:600" href="#">作品集</a>
+          <a style="text-decoration:none;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted);font-weight:600" href="#">履歷</a>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <div style="margin-top:18px;color:var(--muted)">© 2025 林小艾 — 一個普通但認真過日子的學生</div>
+    </footer>
+  </div>
+</body>
+</html>
+

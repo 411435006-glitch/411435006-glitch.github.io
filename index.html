@@ -1,172 +1,299 @@
-<!doctype html>
-<html lang="zh-Hant">
+<!DOCTYPE html>
+<html lang="zh-TW">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>林小艾 — 自我介紹</title>
-  <meta name="description" content="頹廢風格的個人自我介紹頁面" />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Inter:wght@300;600&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#111111;
-      --paper:#141414;
-      --muted:#b0aca9;
-      --accent:#7a6e67;
-      --shadow:0 6px 18px rgba(0,0,0,0.55);
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      background:#111;
-      /* 更頹廢：加強雜訊紙張紋理 */
-      background-image:
-        radial-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
-        radial-gradient(rgba(255,255,255,0.01) 1px, transparent 1px),
-        linear-gradient(180deg, #121212, #0e0e0e);
-      background-size: 2px 2px, 3px 3px, cover;
-      color:#e5e2de;
-      font-family: 'Cormorant Garamond', 'Special Elite', serif;
-      line-height:1.65;
-      padding:28px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ DE-FA WANG // PUNK PROFILE ⚡</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Press+Start+2P&display=swap" rel="stylesheet">
 
-    .container{
-      max-width:860px;
-      margin:32px auto;
-      padding:26px;
-      background:rgba(255,255,255,0.02);
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,0.04);
-      box-shadow:var(--shadow);
-      position:relative;
-      /* 顆粒紙面感 */
-      background-image:
-        radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
-      background-size:3px 3px, cover;
-    }
+    <style>
+        /* -------------------------------------- */
+        /* 0. PUNK GLOBAL RESET/FONTS/VARIABLES */
+        /* -------------------------------------- */
+        :root {
+            --color-bg: #100010; /* 深紫黑色 */
+            --color-primary: #00ff99; /* 霓虹綠 */
+            --color-secondary: #ff33cc; /* 霓虹粉 */
+            --color-accent: #ffcc00; /* 故障黃 */
+        }
 
-    header{display:flex;gap:18px;align-items:center}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    .portrait{
-      width:120px;height:120px;
-      border-radius:6px;
-      background:#0f0f0f;
-      display:flex;align-items:center;justify-content:center;
-      color:var(--muted);font-size:12px;
-      border:1px solid rgba(255,255,255,0.05);
-      background-image:radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
-      background-size:4px 4px;
-    }
+        body {
+            background-color: var(--color-bg);
+            color: var(--color-primary);
+            font-family: 'Major Mono Display', monospace;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* 背景加入雜訊點陣效果 */
+            background-image: radial-gradient(circle at center, rgba(0,255,153,0.1) 1px, transparent 1px), 
+                              linear-gradient(to right, #1a001a 1px, transparent 1px), 
+                              linear-gradient(to bottom, #1a001a 1px, transparent 1px);
+            background-size: 50px 50px, 1px 1px, 1px 1px;
+            perspective: 1000px; /* 設置 3D 舞台的視角 */
+        }
 
-    h1{
-      font-family:'Cormorant Garamond', serif;
-      font-size:28px;
-      font-weight:600;
-      color:#f1ede9;
-    }
-    .sub{color:var(--muted);font-size:13px;margin-top:6px;font-family:'Special Elite', monospace}
+        /* -------------------------------------- */
+        /* 1. 3D PUNK STAGE (舞台設定) */
+        /* -------------------------------------- */
+        .punk-stage {
+            width: 90%;
+            max-width: 700px;
+            padding: 20px;
+            transform-style: preserve-3d; /* 讓子元素在 3D 空間中定位 */
+            text-align: center;
+            transform: rotateX(10deg) rotateY(-5deg); /* 讓整體舞台有一點傾斜的立體感 */
+        }
 
-    main{display:grid;grid-template-columns:1fr 320px;gap:22px;margin-top:18px}
+        /* -------------------------------------- */
+        /* 2. CARD & SECTION STYLES (立體卡片) */
+        /* -------------------------------------- */
 
-    .card{
-      padding:20px;
-      border-radius:8px;
-      background:rgba(255,255,255,0.015);
-      border:1px solid rgba(255,255,255,0.03);
-      background-image:radial-gradient(rgba(255,255,255,0.015) 1px, transparent 1px);
-      background-size:3px 3px;
-      box-shadow:0 3px 10px rgba(0,0,0,0.35);
-    }
+        .profile-card, .detail-panel {
+            background: rgba(0, 0, 0, 0.7);
+            border: 3px solid var(--color-primary);
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 
+                0 0 20px rgba(0, 255, 153, 0.5), /* 內側霓虹光 */
+                -10px 10px 0 var(--color-secondary), /* 3D 陰影位移 */
+                -12px 12px 0 var(--color-accent); /* 第二層 3D 陰影位移 */
+            transition: transform 0.5s ease-in-out, box-shadow 0.5s ease;
+            transform: translateZ(50px); /* 讓卡片看起來懸浮在舞台上方 */
+        }
 
-    .about p{margin:0 0 12px 0;color:#dcd8d4;font-size:17px;font-family:'Cormorant Garamond', serif}
-    .small{color:var(--muted);font-size:13px;font-family:'Special Elite', monospace}
+        .profile-card:hover {
+            transform: translateZ(70px) rotateX(1deg) rotateY(1deg); /* 滑鼠懸停時微小 3D 旋轉 */
+            box-shadow: 
+                0 0 30px rgba(0, 255, 153, 0.8), 
+                -15px 15px 0 var(--color-secondary),
+                -17px 17px 0 var(--color-accent);
+        }
 
-    .list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
-    .item{
-      padding:10px 12px;
-      border-radius:6px;
-      background:rgba(255,255,255,0.015);
-      border-left:3px solid rgba(255,255,255,0.05);
-      color:#d2ceca;
-      font-family:'Cormorant Garamond';
-    }
+        .detail-panel {
+            transform: translateZ(20px); /* 詳細資訊卡片稍微靠後 */
+            border-color: var(--color-secondary);
+        }
 
-    .contact pre{
-      background:rgba(0,0,0,0.25);
-      padding:10px;border-radius:6px;
-      color:var(--muted);
-      font-family:'Special Elite';
-      font-size:13px;
-    }
+        .hidden {
+            display: none;
+        }
 
-    footer{text-align:center;color:var(--muted);font-size:12px;margin-top:18px;font-family:'Special Elite'}
+        /* -------------------------------------- */
+        /* 3. TYPOGRAPHY & GLITCH (文字和故障效果) */
+        /* -------------------------------------- */
 
-    @media (max-width:800px){main{grid-template-columns:1fr} .portrait{width:96px;height:96px}}
-  </style>
+        h1 {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 2.5em;
+            color: var(--color-accent);
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.8), 
+                         -2px 2px 0 var(--color-secondary); /* 3D 文字陰影 */
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-size: 1.2em;
+            color: var(--color-secondary);
+            margin-bottom: 20px;
+            transform: skewX(-15deg); /* 傾斜效果增加動態感 */
+        }
+
+        /* --- GLITCH EFFECT (故障動畫) --- */
+        .glitch {
+            position: relative;
+            animation: glitch-anim 2s infinite alternate-reverse; 
+        }
+
+        .glitch::before,
+        .glitch::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--color-bg);
+            overflow: hidden;
+        }
+
+        .glitch::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--color-primary);
+            animation: glitch-anim-1 2s infinite alternate-reverse;
+        }
+
+        .glitch::after {
+            left: -2px;
+            text-shadow: -2px 0 var(--color-secondary);
+            animation: glitch-anim-2 2s infinite alternate-reverse;
+        }
+
+        @keyframes glitch-anim {
+            0% { transform: translate(0); }
+            20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(-3px, -3px); }
+            60% { transform: translate(3px, 3px); }
+            80% { transform: translate(3px, -3px); }
+            100% { transform: translate(0); }
+        }
+        /* 故障切片動畫 */
+        @keyframes glitch-anim-1 {
+            0% { clip: rect(27px, 9999px, 83px, 0); }
+            25% { clip: rect(38px, 9999px, 80px, 0); }
+            50% { clip: rect(62px, 9999px, 70px, 0); }
+            75% { clip: rect(90px, 9999px, 63px, 0); }
+            100% { clip: rect(44px, 9999px, 33px, 0); }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% { clip: rect(35px, 9999px, 44px, 0); }
+            25% { clip: rect(80px, 9999px, 50px, 0); }
+            50% { clip: rect(25px, 9999px, 90px, 0); }
+            75% { clip: rect(50px, 9999px, 30px, 0); }
+            100% { clip: rect(10px, 9999px, 55px, 0); }
+        }
+
+        /* -------------------------------------- */
+        /* 4. LISTS & BUTTONS (列表和按鈕) */
+        /* -------------------------------------- */
+
+        .action-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: var(--color-secondary);
+            color: var(--color-bg);
+            text-decoration: none;
+            font-weight: bold;
+            border: 2px solid var(--color-accent);
+            cursor: pointer;
+            box-shadow: 4px 4px 0 var(--color-primary); /* 3D 按鈕感 */
+            transition: all 0.2s;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 0.8em;
+            margin-top: 20px;
+        }
+
+        .action-button:hover {
+            background: var(--color-primary);
+            color: var(--color-bg);
+            box-shadow: 2px 2px 0 var(--color-secondary);
+            transform: translate(2px, 2px); /* 按下去的效果 */
+        }
+        
+        /* 列表樣式 */
+        ul {
+            list-style: none;
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            position: relative;
+            color: var(--color-primary);
+        }
+
+        li::before {
+            content: '>>'; /* 龐克風格的列表符號 */
+            position: absolute;
+            left: -20px;
+            color: var(--color-secondary);
+        }
+        
+        .food-preference p {
+            font-size: 1.2em;
+            margin: 5px 0;
+            transform: skewX(-5deg);
+            color: var(--color-accent);
+        }
+
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="portrait">照片 / 替換</div>
-      <div>
-        <h1>林小艾（Lin, Hsiao‑Ai）</h1>
-        <div class="sub">普通大學生 • 社會系三年級 • 台北</div>
-      </div>
-    </header>
+    
+    <div class="punk-stage">
+        <header class="profile-card" id="main-card">
+            
+            <h1 class="glitch" data-text="WANG DE-FA">WANG DE-FA</h1>
+            <h2>// CYBER-PUNK JUNIOR //</h2>
+            
+            <div style="display: flex; justify-content: space-around; gap: 15px; margin-bottom: 30px; border: 1px solid var(--color-secondary); padding: 10px; background: rgba(255, 51, 204, 0.1);">
+                <div style="flex: 1;">
+                    <p style="font-size: 0.8em; color: var(--color-accent); margin-bottom: 2px;">來自</p>
+                    <p style="font-size: 1.1em; font-weight: bold;">⚡ 基隆 ⚡</p>
+                </div>
+                <div style="flex: 1;">
+                    <p style="font-size: 0.8em; color: var(--color-accent); margin-bottom: 2px;">學系</p>
+                    <p style="font-size: 1.1em; font-weight: bold;">東華資管系 (大一)</p>
+                </div>
+            </div>
+            
+            <a href="javascript:void(0)" class="action-button" onclick="toggleDetails(this)">>> ACCESS DATA FILE <<</a>
+        </header>
 
-    <main>
-      <section class="card about">
-        <h2 style="margin-top:0">關於我</h2>
-        <p>我是一個很普通的大學生，喜歡安靜的角落、舊書、和半夜煮泡麵。一週三天去圖書館、週末在咖啡店打工，生活像很多同學一樣平凡但足夠讓我安心。</p>
-        <p>不擅長社交也不想太突出，喜歡把想法寫在筆記本裡。考慮未來可能會當老師、做編輯，或是找一份可以聽音樂工作的辦公室小職位。</p>
+        <section id="bio" class="detail-panel hidden">
+            <h3 style="font-size: 1.5em; color: var(--color-primary); border-bottom: 2px dashed var(--color-primary); padding-bottom: 5px; margin-bottom: 15px;">[ USER DATA LOG ]</h3>
+            
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; text-align: left; gap: 20px;">
+                <div style="flex: 1; min-width: 250px; border: 1px dashed var(--color-secondary); padding: 15px; background: rgba(0, 255, 153, 0.05);">
+                    <h4 style="color: var(--color-accent); margin-bottom: 10px;">// INTERESTS_CORE //</h4>
+                    <ul>
+                        <li><span style="color: var(--color-accent); font-size: 0.9em;">#DIY_HACKING</span> (自己動手做)</li>
+                        <li><span style="color: var(--color-accent); font-size: 0.9em;">#FASHION_CODE</span> (穿搭)</li>
+                        <li><span style="color: var(--color-accent); font-size: 0.9em;">#VTUBING_STREAM</span> (看 YT)</li>
+                        <li><span style="color: var(--color-accent); font-size: 0.9em;">#CULINARY_SYNTH</span> (烹飪)</li>
+                    </ul>
+                </div>
 
-        <div style="margin-top:12px">
-          <div class="small">學業與日常</div>
-          <div class="list">
-            <div class="item"><strong>系別：</strong>社會學系 • 三年級</div>
-            <div class="item"><strong>興趣：</strong>閱讀、日記、街角攝影、慢煮咖啡</div>
-            <div class="item"><strong>打工：</strong>咖啡店吧台（週末）</div>
-          </div>
-        </div>
+                <div class="food-preference" style="flex: 1; min-width: 250px; border: 1px dashed var(--color-secondary); padding: 15px; background: rgba(0, 255, 153, 0.05);">
+                    <h4 style="color: var(--color-accent); margin-bottom: 10px;">// FUEL_PREFERENCE //</h4>
+                    <p>🔥 柿子 <span style="font-family: Arial, sans-serif;">🍊</span></p>
+                    <p>🔥 火龍果 <span style="font-family: Arial, sans-serif;">🐉</span></p>
+                    <p>🔥 白蘿蔔 <span style="font-family: Arial, sans-serif;">🥕</span></p>
+                    <p>🔥 秋葵 <span style="font-family: Arial, sans-serif;">🫛</span></p>
+                    <p>🔥 茄子 <span style="font-family: Arial, sans-serif;">🍆</span></p>
+                    <p>🔥 頭好壯壯身體好 <span style="font-family: Arial, sans-serif;">🏋️‍♀️🏋️‍♂️🏋️</span></p>
+                  
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px; font-size: 0.8em; color: rgba(255, 255, 255, 0.5);">
+                <p>&lt;&lt; END OF FILE &gt;&gt;</p>
+            </div>
+        </section>
+    </div>
 
-        <div style="margin-top:14px">
-          <h3 style="margin:0 0 8px 0">個性小檔案</h3>
-          <ul style="margin:0;padding-left:18px;color:var(--muted)">
-            <li>日常節奏慢，喜歡觀察而不是起頭發言</li>
-            <li>不追流行，但會留意新書出版</li>
-            <li>遇到壓力會先畫畫再想辦法解決</li>
-          </ul>
-        </div>
-      </section>
-
-      <aside class="card contact">
-        <h3 style="margin-top:0">Quick Info</h3>
-        <div class="small">年齡：約20歲</div>
-        <div class="small" style="margin-top:6px">居住：台北 • 通學每天約40分鐘</div>
-
-        <h4 style="margin-top:12px;margin-bottom:6px">擅長的小事</h4>
-        <div class="list">
-          <div class="item">整理筆記、慢速書寫</div>
-          <div class="item">拍攝日常瞬間（手機）</div>
-          <div class="item">煮簡單的家常料理</div>
-        </div>
-
-        <h4 style="margin-top:12px;margin-bottom:6px">聯絡</h4>
-        <p class="small">如果想合作或聊書，可以用下面方式聯繫（此為虛構範例）：</p>
-        <pre>lin.xiaoai@example.com
-IG: @lin_xiaoai</pre>
-
-        <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
-          <a style="text-decoration:none;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted);font-weight:600" href="#">作品集</a>
-          <a style="text-decoration:none;padding:8px 10px;border-radius:8px;background:rgba(255,255,255,0.02);color:var(--muted);font-weight:600" href="#">履歷</a>
-        </div>
-      </aside>
-    </main>
-
-    <footer>
-      <div style="margin-top:18px;color:var(--muted)">© 2025 林小艾 — 一個普通但認真過日子的學生</div>
-    </footer>
-  </div>
+    <script>
+        function toggleDetails(buttonElement) {
+            const bioSection = document.getElementById('bio');
+            
+            // 檢查目前狀態
+            if (bioSection.classList.contains('hidden')) {
+                // 展開
+                bioSection.style.display = 'block';
+                bioSection.classList.remove('hidden');
+                buttonElement.textContent = '<< CLOSE DATA FILE >>';
+                buttonElement.style.backgroundColor = 'var(--color-primary)';
+                buttonElement.style.borderColor = 'var(--color-secondary)';
+                buttonElement.style.boxShadow = '4px 4px 0 var(--color-secondary)';
+            } else {
+                // 收合
+                bioSection.style.display = 'none';
+                bioSection.classList.add('hidden');
+                buttonElement.textContent = '>> ACCESS DATA FILE <<';
+                buttonElement.style.backgroundColor = 'var(--color-secondary)';
+                buttonElement.style.borderColor = 'var(--color-accent)';
+                buttonElement.style.boxShadow = '4px 4px 0 var(--color-primary)';
+            }
+        }
+    </script>
 </body>
 </html>
-
